@@ -134,7 +134,7 @@
       formData.append("screenshot", file);
 
       try {
-        await fetch("YOUR_GOOGLE_SCRIPT_WEB_APP_URL", {
+        await fetch("https://script.google.com/macros/s/AKfycbxdeMs-4HkQRDiDmXRAgm9cXk9fZMgn7prorvjXFTMGpwLsXNRYHp8SDq7Fu6AgcZAIpQ/exec", {
           method: "POST",
           body: formData,
         });
