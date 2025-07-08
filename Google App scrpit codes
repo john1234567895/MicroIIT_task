@@ -1,0 +1,21 @@
+function doPost(e) {
+  const folderId = "YOUR_FOLDER_ID"; // 🗂️ Replace with your Google Drive folder ID
+  const sheetId = "YOUR_SHEET_ID";   // 📄 Replace with your Google Sheet ID
+  const sheetName = "Sheet1";        // 📝 Your sheet's name
+
+  const blob = e.parameter.screenshot || e.files?.screenshot;
+  const file = blob ? DriveApp.getFolderById(folderId).createFile(blob) : null;
+  const fileUrl = file ? file.getUrl() : "No file uploaded";
+
+  const sheet = SpreadsheetApp.openById(sheetId).getSheetByName(sheetName);
+  sheet.appendRow([
+    new Date(),
+    e.parameter.name,
+    e.parameter.phone,
+    e.parameter.email,
+    e.parameter.college,
+    fileUrl
+  ]);
+
+  return ContentService.createTextOutput("Success").setMimeType(ContentService.MimeType.TEXT);
+}
