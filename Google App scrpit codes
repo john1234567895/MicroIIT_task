@@ -1,7 +1,7 @@
 function doPost(e) {
-  const folderId = "https://drive.google.com/drive/folders/19K3opuouZ_57DrGBTT8dfctwBDionS-u"; // 🗂️ Replace with your Google Drive folder ID
-  const sheetId = "https://docs.google.com/spreadsheets/d/1QxawDPwWUu6euyT6quVQcvArXpA0CZPTf3PYYR7hsvI/edit?usp=drivesdk";   // 📄 Replace with your Google Sheet ID
-  const sheetName = "TECH_FOR_GIRLS_COMMUNITY"; // 📝 Your sheet's name
+  const folderId = "https://drive.google.com/drive/folders/19K3opuouZ_57DrGBTT8dfctwBDionS-u"; //  Replace with your Google Drive folder ID
+  const sheetId = "https://docs.google.com/spreadsheets/d/1QxawDPwWUu6euyT6quVQcvArXpA0CZPTf3PYYR7hsvI/edit?usp=drivesdk";   // Replace with your Google Sheet ID
+  const sheetName = "TECH_FOR_GIRLS_COMMUNITY"; //  Your sheet's name
 
   const blob = e.parameter.screenshot || e.files?.screenshot;
   const file = blob ? DriveApp.getFolderById(folderId).createFile(blob) : null;
